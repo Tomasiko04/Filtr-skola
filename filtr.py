@@ -10,13 +10,12 @@ def rozdil(a,b):
 
 #menu
 #cyklus/volba/ aktivace fce/ návrat
-#
 
 
-obrazek = Image.open("images 2.jpg")
-sirka, vyska = obrazek.size
+
+
 def filtr1():
-    obrazek = Image.open("images 2.jpg")
+    obrazek = Image.open("1.jpg")
     sirka, vyska = obrazek.size
     
     x = 0
@@ -46,7 +45,7 @@ def filtr1():
     obrazek.show()
 
 def filtr2():
-    obrazek = Image.open("images 2.jpg")
+    obrazek = Image.open("1.jpg")
     sirka, vyska = obrazek.size
     x = 0
     while x < sirka:
@@ -64,7 +63,7 @@ def filtr2():
     obrazek.show()
 
 def filtr3():
-    obrazek = Image.open("images 2.jpg")
+    obrazek = Image.open("1.jpg")
     sirka, vyska = obrazek.size
     x = 0
     while x < sirka:
@@ -82,33 +81,42 @@ def filtr3():
     
     obrazek.show()
 
-
-
 def slovnik():
   y=0
-  druh={"1":"zeleny",
-        "2":"modry",
-        "3":"vice barev"}
+  druh={"1":"Barevný",
+        "2":"Modročerný",
+        "3":"Zelenočerný"}
   #print("Vyber si:")
   for key,value in druh.items():
     y+=1
     print(f"{key}. {value}")
 
 
+
 slovnik()
 while True:
   volba=input("Vyber si filtr(1/2/3): ")
-
+  
   if volba=="1":
     filtr1()
-
+    pokracovat=input("Chcete pokračovat(ano/ne): ").lower()
   elif volba=="2":
-      filtr2()
+    filtr2()
+    pokracovat=input("Chcete pokračovat(ano/ne): ").lower()
   elif volba=="3":
-      filtr3()
+    filtr3()
+    pokracovat=input("Chcete pokračovat(ano/ne): ").lower()
+    
   else:
-      print("spatne")
+      print("Zadal si špatnou vstupní honotu.")
 
+  if pokracovat=="ano":
+     continue
+  else:
+     break
+print("Program skončil.")
+     
+     
 
 
 
