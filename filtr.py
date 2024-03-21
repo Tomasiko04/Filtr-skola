@@ -1,4 +1,5 @@
 
+
 from PIL import Image
 
 def soucet(a,b):
