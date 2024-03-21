@@ -10,26 +10,9 @@ def rozdil(a,b):
 #menu
 #cyklus/volba/ aktivace fce/ návrat
 
-#
-def f_original(vyber_auta):
-    while True:
-        original=input("Chcete tento obrázek ještě před úpravou(ano/ne): ")
-        if original=="ano":
-            obrazek = Image.open(vyber_auta)
-            obrazek.show()
-            break
-        elif original=="ne":
-            break
-        else:
-            print("Zadal si špatnou vstupní honotu.")
-            continue
 
 
-       
 
-    
-
-#
 def filtr1(nejaky_obrazek):
     obrazek = Image.open(nejaky_obrazek)
     sirka, vyska = obrazek.size
@@ -143,26 +126,17 @@ def slovnik_aut(auta):
 
 o=0
 
-
+slovnik_aut(auta)
 
 #####################################u=0
 ### VYBER FOTKY ###
 while o<2:
-    o=0
     while True:
-             
-        slovnik_aut(auta)
-
+        o=0     
         vyber_auta=input("Jaký obrazek si přeješ upravit(1/2/3):")
-        #original=input("Chcete tento obrázek ještě před úpravou(ano/ne): ")
-        
-
-
         if vyber_auta=="1":
             vyber="1.jpg"
-            #original=input("Chcete tento obrázek ještě před úpravou(ano/ne): ")
-            f_original(vyber)
-            break
+            break   
             
             # if u==1:
             #     break
@@ -179,21 +153,16 @@ while o<2:
             
             
         elif vyber_auta=="2":
-            #original=input("Chcete tento obrázek ještě před úpravou(ano/ne): ")
             vyber="2.jpg"
-            f_original(vyber)
             break
         elif vyber_auta=="3":
-            #original=input("Chcete tento obrázek ještě před úpravou(ano/ne): ")
             vyber="images 2.jpg"
-            f_original(vyber)
             break
         else:
             print("Zadal si špatnou vstupní honotu.")
-            continue
-        
 
-### VYBER FILTRU ###
+
+    ### VYBER FILTRU ###
     slovnik_filtr()
     while o<1 :
         volba=input("Vyber si filtr(1/2/3): ")
