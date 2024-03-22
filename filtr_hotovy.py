@@ -3,18 +3,21 @@ from PIL import Image
 # menu
 #cyklus/volba/ aktivace fce/ návrat
 
+######### FUNKCE ####
 # PUVODNI
 def f_original(vyber_auta):
     while True:
-        original=input("Chcete tento obrázek ještě před úpravou(ano/ne): ")
+        original=input("    Chcete tento obrázek ještě před úpravou(ano/ne): ")
         if original=="ano":
             obrazek = Image.open(vyber_auta)
             obrazek.show()
+            print("="*62)
             break
         elif original=="ne":
+            print("="*62)
             break
         else:
-            print("Zadal si špatnou vstupní honotu.")
+            print(" Zadal si špatnou vstupní honotu.")
             continue
  
 
@@ -48,6 +51,7 @@ def filtr1(nejaky_obrazek):
         x += 1
 
     obrazek.show()
+    return obrazek
 
 def filtr2(nejaky_obrazek):
     obrazek = Image.open(nejaky_obrazek)
@@ -110,7 +114,7 @@ def slovnik_aut(auta):
       
       print(f"{key}. {value}")
     
-#################################################################
+#################   program            ###########################
 
 o=0
 
@@ -120,16 +124,13 @@ while o<2:
     while True:
              
         slovnik_aut(auta)
-
-        vyber_auta=input("Jaký obrazek si přeješ upravit(1/2/3):")
+        vyber_auta=input("  Jaký obrazek si přeješ upravit(1/2/3):")
         
-        
-
 
         if vyber_auta=="1":
             vyber="1.jpg"
-            
             f_original(vyber)
+            
             break
 
         elif vyber_auta=="2":
@@ -142,36 +143,42 @@ while o<2:
             f_original(vyber)
             break
         else:
-            print("Zadal si špatnou vstupní honotu.")
+            print(" Zadal si špatnou vstupní honotu.")
             continue
         
 
 ### VYBER FILTRU ###
-    slovnik_filtr()
-    while o<1 :
-        volba=input("Vyber si filtr(1/2/3): ")
+    
+    while True :
+
+        slovnik_filtr()
+        volba=input("   Vyber si filtr(1/2/3): ")
         
         if volba=="1":
             filtr1(vyber)
-            
+            break
         elif volba=="2":
             filtr2(vyber)
-            
+            break
         elif volba=="3":
             filtr3(vyber)
-            
+            break
             
         else:
-            print("Zadal si špatnou vstupní honotu.")
-        
-        while True:
-            pokracovat=input("Chcete pokračovat(ano/ne): ").lower()
-            if pokracovat=="ano":
-                o+=1
-                break
-            elif pokracovat=="ne":
-                o+=2
-                break
-            else:
-                print("Zadal si špatnou vstupní honotu.")
+            print(" Zadal si špatnou vstupní honotu.")
+            continue
+    while True:
+        print("="*62)
+        pokracovat=input("Chcete pokračovat(ano/ne): ").lower()
+        if pokracovat=="ano":
+            
+            print("="*62)
+            break
+        elif pokracovat=="ne":
+            o+=2
+            print("="*62)
+            break
+        else:
+            print(" Zadal si špatnou vstupní honotu.")
+
 print("Program skončil.")
